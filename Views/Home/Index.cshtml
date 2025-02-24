@@ -1,0 +1,34 @@
+﻿@model EmailSendingApp.Models.EmailModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Form</title>
+</head>
+<body>
+    <h1>Send Email</h1>
+
+    @if (ViewData["Message"] != null)
+    {
+        <div>@ViewData["Message"]</div>
+    }
+
+    <form asp-action="SendEmail" method="post">
+        <div>
+            <label for="ToEmail">To Email:</label>
+            <input type="email" id="ToEmail" name="ToEmail" required />
+        </div>
+        <div>
+            <label for="Subject">Subject:</label>
+            <input type="text" id="Subject" name="Subject" required />
+        </div>
+        <div>
+            <label for="Body">Body:</label>
+            <textarea id="Body" name="Body" required></textarea>
+        </div>
+        <button type="submit">Send Email</button>
+    </form>
+</body>
+</html>
